@@ -2,21 +2,18 @@ const canvas = document.getElementById('sparkles');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
-canvas.height = canvas.offsetHeight;
+canvas.height = window.innerHeight;
 
 const particlesArray = [];
 const numberOfParticles = 150;
 
 class Particle {
     constructor() {
-        // Genera partículas en un área debajo del texto
-        this.angle = Math.random() * Math.PI; // Rango de 0 a PI para una curva suave
-        this.radius = 100 + Math.random() * 50; // Ajusta el radio para una dispersión moderada
-        this.x = canvas.width / 2 + this.radius * Math.cos(this.angle);
-        this.y = canvas.height / 2 + this.radius * Math.sin(this.angle);
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 0.5;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
     }
 
     update() {
@@ -45,7 +42,6 @@ function handleParticles() {
         particlesArray[i].update();
         particlesArray[i].draw();
 
-        // Elimina partículas pequeñas para regenerarlas
         if (particlesArray[i].size <= 0.1) {
             particlesArray.splice(i, 1);
             i--;
@@ -61,9 +57,25 @@ function animate() {
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
-    canvas.height = canvas.offsetHeight;
+    canvas.height = window.innerHeight;
     initParticles();
 });
 
 initParticles();
 animate();
+setInterval(initParticles, 4000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.landing-container');
+
+    function checkScroll() {
+        const containerPosition = container.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (containerPosition < screenPosition) {
+            container.classList.add('visible');
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+});

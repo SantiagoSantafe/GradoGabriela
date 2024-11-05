@@ -10,7 +10,7 @@ body {
     overflow: hidden;
 }
 
-/* Asegúrate de que el contenedor cubra toda la pantalla */
+/* Contenedor principal */
 .landing-container {
     background-color: #011730;
     width: 100vw;
@@ -27,7 +27,7 @@ body {
 .titulo {
     color: white;
     font-size: 50px;
-    z-index: 1; /* Asegura que el texto esté encima de las partículas */
+    z-index: 2; /* Asegura que el texto esté encima de las partículas y las imágenes */
 }
 
 /* Estilos para el texto con brillo */
@@ -50,9 +50,57 @@ body {
 /* Canvas para las partículas */
 canvas#sparkles {
     position: absolute;
-    top: 60%; /* Posiciona el canvas debajo del texto */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 20vh; /* Limita la altura para que no se extienda demasiado */
+    height: 100%;
     pointer-events: none;
-    z-index: 0; /* Asegura que el canvas esté detrás del texto */
+    z-index: 1; /* Asegura que el canvas esté detrás del texto pero encima del fondo */
+}
+
+/* Estilos para las imágenes con efecto espejo */
+.imagen-izquierda, .imagen-derecha {
+    position: absolute;
+    top: calc(55% - 50px); /* Sube las imágenes 20 píxeles */
+    width: 20vw; /* Ajusta el tamaño de las imágenes para que ocupen la mitad del ancho de la ventana */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    transform-origin: center;
+    z-index: 0; /* Coloca las imágenes detrás del texto y del canvas */
+}
+
+/* Transformaciones individuales para cada imagen */
+.imagen-izquierda {
+    left: 30%; /* Alinea la imagen izquierda al borde izquierdo */
+    transform: scaleX(-1) rotate(-15deg); /* Efecto espejo y rotación de -15 grados en la imagen izquierda */
+}
+
+.imagen-derecha {
+    right: 30%; /* Alinea la imagen derecha al borde derecho */
+    transform: rotate(-15deg); /* Rotación de -15 grados para la imagen derecha */
+}
+/* Media queries para hacer las imágenes responsivas */
+@media (max-width: 1200px) {
+    .imagen-izquierda, .imagen-derecha {
+        width: 25vw; /* Ajusta el tamaño de las imágenes para pantallas medianas */
+    }
+}
+
+@media (max-width: 992px) {
+    .imagen-izquierda, .imagen-derecha {
+        width: 30vw; /* Ajusta el tamaño de las imágenes para pantallas pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .imagen-izquierda, .imagen-derecha {
+        width: 40vw; /* Ajusta el tamaño de las imágenes para pantallas muy pequeñas */
+        top: calc(55% - 30px); /* Ajusta la posición para pantallas muy pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .imagen-izquierda, .imagen-derecha {
+        width: 50vw; /* Ajusta el tamaño de las imágenes para pantallas extra pequeñas */
+        top: calc(55% - 20px); /* Ajusta la posición para pantallas extra pequeñas */
+    }
 }
