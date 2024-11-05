@@ -1,0 +1,58 @@
+/* Define la fuente */
+@font-face {
+    font-family: 'Slight';
+    src: url('Slight-Regular.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Asegúrate de que el contenedor cubra toda la pantalla */
+.landing-container {
+    background-color: #011730;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Estilos para el texto */
+.titulo {
+    color: white;
+    font-size: 50px;
+    z-index: 1; /* Asegura que el texto esté encima de las partículas */
+}
+
+/* Estilos para el texto con brillo */
+.brillo {
+    position: relative;
+    display: inline-block;
+    animation: brillo-anim 2s infinite;
+    font-family: 'Slight', sans-serif;
+}
+
+@keyframes brillo-anim {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 1);
+    }
+}
+
+/* Canvas para las partículas */
+canvas#sparkles {
+    position: absolute;
+    top: 60%; /* Posiciona el canvas debajo del texto */
+    width: 100%;
+    height: 20vh; /* Limita la altura para que no se extienda demasiado */
+    pointer-events: none;
+    z-index: 0; /* Asegura que el canvas esté detrás del texto */
+}
