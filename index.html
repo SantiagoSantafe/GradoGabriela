@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brillos en Texto</title>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -29,6 +30,11 @@
             nueva etapa que comienza.</p>
         </div> <br><br><br><br>
         <button class="details-button">DETALLES</button>
+    <script>
+        document.querySelector('.details-button').addEventListener('click', function() {
+            document.querySelector('.reception-container').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
     </div>
 
     <div class="reception-container">
@@ -44,6 +50,17 @@
         
         <p class="gift-note">LLUVIA DE SOBRES</p>
     </div>
+
+    <div class="dress-code-container">
+        <p class="dress-code-title">CÓDIGO DE VESTIMENTA</p>
+        <p class="dress-code-description">Aquí podrás encontrar ideas de como puedes ir</p>
+        <a data-pin-do="embedBoard" href="https://pin.it/JV150vXu4" title="Pinterest Board">Ver ideas en Pinterest</a>
+        <div class="confirmation">
+            <p>Confirmar asistencia</p>
+            <p class="contact-numbers">3219673563 / 3132807187</p>
+        </div>
+    </div>
+    
 
     <script>
         // Función para verificar si un elemento está en la vista

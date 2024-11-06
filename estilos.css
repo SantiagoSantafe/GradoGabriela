@@ -7,7 +7,6 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 
@@ -155,6 +154,8 @@ canvas#sparkles {
 @font-face {
     font-family: 'Simple Serenity';
     src: url('SimpleSerenitySerif.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .invitation-container h1 {
@@ -233,4 +234,115 @@ canvas#sparkles {
     .imagengrad-izquierda, .imagengrad-derecha {
         width: 40px; /* Tamaño de imágenes adaptado para pantallas pequeñas */
     }
+}
+
+.reception-container {
+    text-align: center;
+    color: #ffffff;
+    background-color: #011730;
+    padding: 40px;
+}
+
+.reception-title {
+    font-size: 3.5rem;
+    font-family: 'Slight', cursive;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la fecha y hora */
+.reception-details {
+    font-family: 'Simple Serenity', sans-serif;
+    margin: 20px 0;
+}
+
+.date-time {
+    font-size: 1.2rem;
+    font-family: 'Simple Serenity', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.date-time span {
+    font-size: 1.2rem;
+}
+
+/* Estilo para el lugar del evento */
+.venue {
+    font-size: 1.2rem;
+    font-family: 'Simple Serenity', sans-serif;
+    border-top: 1px solid #ffffff;
+    padding-top: 10px;
+}
+
+.venue p {
+    margin: 5px 0;
+}
+
+/* Nota de regalo */
+.gift-note {
+    font-size: 0.9rem;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    color: #cfcfcf;
+}
+
+/* Contenedor principal de código de vestimenta */
+.dress-code-container {
+    text-align: center;
+    color: #0e1a2b; /* Color oscuro */
+    font-family: Arial, sans-serif;
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Fondo claro */
+    margin-top: 40px; /* Espacio superior si es necesario */
+}
+
+/* Título de código de vestimenta */
+.dress-code-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0e1a2b;
+    margin-bottom: 10px;
+}
+
+/* Descripción de la vestimenta */
+.dress-code-description {
+    font-size: 1rem;
+    color: #0e1a2b;
+    margin-bottom: 5px;
+}
+
+/* Enlace para ideas de vestimenta */
+.dress-code-link {
+    color: #0e1a2b;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.dress-code-link:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor de confirmación de asistencia */
+.confirmation {
+    margin-top: 40px;
+    text-align: left;
+    color: #0e1a2b;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Números de contacto */
+.contact-numbers {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #0e1a2b;
+}
+
+.dress-code-container a[data-pin-do="embedBoard"] {
+    min-height: 400px;
+    display: block;
 }
