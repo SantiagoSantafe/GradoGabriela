@@ -13,6 +13,62 @@
         <img src="width_550.webp" alt="Descripción de la imagen" class="imagen-izquierda" />
         <img src="width_550.webp" alt="Descripción de la imagen" class="imagen-derecha" />
     </div>
-    <script src="script.js"></script>
+
+    <!-- Invitación de Graduación -->
+    <div class="invitation-container" id="invitation">
+        <h3>Has sido invitado a mi</h3>
+        <div class="graduation-header">
+            <img src="width_550 (1).webp" alt="Descripción de la imagen" class="imagengrad-izquierda" />
+            <h1>GRADUACIÓN</h1>
+            <img src="width_550 (1).webp" alt="Descripción de la imagen" class="imagengrad-derecha" />
+        </div>
+        <div class="message">
+            <p>Después de años de dedicación y aprendizaje, ha llegado a este momento tan especial y quisiera compartirlo
+            con las personas que han sido parte fundamental de mi camino.</p>
+            <p>Me encantaría que me acompañes en esta celebración para dar gracias por lo vivido y recibir juntos esta
+            nueva etapa que comienza.</p>
+        </div> <br><br><br><br>
+        <button class="details-button">DETALLES</button>
+    </div>
+
+    <div class="reception-container">
+        <h1 class="reception-title">Recepción</h1>
+        
+        <div class="reception-details">
+            <p class="date-time">NOVIEMBRE 29 <span>|</span> 7:00 PM</p>
+            <div class="venue">
+                <p>HOTEL CARIONGO</p>
+                <p>SALÓN ROCHEREAUX</p>
+            </div>
+        </div>
+        
+        <p class="gift-note">LLUVIA DE SOBRES</p>
+    </div>
+
+    <script>
+        // Función para verificar si un elemento está en la vista
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }
+
+        // Función para activar la animación de entrada cuando el elemento está en la vista
+        function checkScroll() {
+            const invitation = document.getElementById('invitation');
+            if (isElementInViewport(invitation)) {
+                invitation.classList.add('fade-in');
+                // Remueve el evento scroll después de que la animación se active
+                window.removeEventListener('scroll', checkScroll);
+            }
+        }
+
+        // Añade el evento scroll al cargar la página
+        window.addEventListener('scroll', checkScroll);
+        // También se revisa inmediatamente en caso de que ya esté en vista al cargar la página
+        window.addEventListener('load', checkScroll);
+    </script>    
 </body>
 </html>

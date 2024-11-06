@@ -7,8 +7,9 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    box-sizing: border-box;
 }
+
 
 /* Contenedor principal */
 .landing-container {
@@ -21,6 +22,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
+    color: white;
 }
 
 /* Estilos para el texto */
@@ -102,5 +104,133 @@ canvas#sparkles {
     .imagen-izquierda, .imagen-derecha {
         width: 50vw; /* Ajusta el tamaño de las imágenes para pantallas extra pequeñas */
         top: calc(55% - 20px); /* Ajusta la posición para pantallas extra pequeñas */
+    }
+}
+
+/* Botón para deslizar hacia la invitación */
+.scroll-button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #5e00b0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 3; /* Encima del contenido */
+}
+
+.scroll-button:hover {
+    background-color: #45007f;
+}
+
+/* Invitación: estilo inicial oculto */
+.invitation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: #011730;
+    color: #ffffff;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+    box-sizing: border-box;
+}
+
+.invitation-container h3 {
+    font-family: 'Slight', sans-serif;
+    font-size: 1.5rem;
+}
+
+@font-face {
+    font-family: 'Simple Serenity';
+    src: url('SimpleSerenitySerif.ttf') format('truetype');
+}
+
+.invitation-container h1 {
+    font-family: 'Simple Serenity', sans-serif;
+}
+
+/* Estilo para mostrar la invitación cuando está en pantalla */
+.invitation-container.fade-in {
+    opacity: 1; /* Completamente visible */
+    transform: translateY(0); /* Posición final */
+}
+
+/* Resto de estilos para el texto y botón */
+.invitation-container .header p {
+    font-size: 1.5rem;
+    color: #cfcfcf;
+    margin-bottom: 10px;
+}
+
+.graduation-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre las imágenes y el texto */
+    margin-bottom: 20px;
+}
+
+.invitation-container .header h1 {
+    font-size: 3.5rem;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.invitation-container .message p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #cfcfcf;
+}
+
+.details-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #0e1a2b;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+    background-color: #e0e0e0;
+}
+
+.graduation-header h1 {
+    font-family: 'Simple Serenity', sans-serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Estilo para las imágenes a los lados */
+.imagengrad-izquierda, .imagengrad-derecha {
+    width: 500px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .graduation-header h1 {
+        font-size: 2.5rem; /* Tamaño de texto adaptado para pantallas pequeñas */
+    }
+    .imagengrad-izquierda, .imagengrad-derecha {
+        width: 40px; /* Tamaño de imágenes adaptado para pantallas pequeñas */
     }
 }
