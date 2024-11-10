@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brillos en Texto</title>
+    <title>Invitación de Gabriela</title>
     <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            <div class="lock-icon">
+                <img src="tl.webp" alt="Icono de candado" style="width: 40px; height: 48px;">
+            </div>
+            <h2>Para desbloquear la tarjeta,<br>ingresa tu nombre y apellido</h2>
+            <input type="text" id="nameInput" placeholder="Nombre...">
+            <button onclick="unlockCard()">Continuar</button>
+        </div>
+    </div>
     <div class="landing-container">
         <h1 class="titulo brillo">Maria Gabriela</h1>
         <canvas id="sparkles"></canvas>
@@ -16,7 +30,7 @@
     </div>
 
     <!-- Invitación de Graduación -->
-    <div class="invitation-container" id="invitation">
+    <div class="invitation-container" id="invitation" style="display: none;" >
         <h3>Has sido invitado a mi</h3>
         <div class="graduation-header">
             <img src="width_550 (1).webp" alt="Descripción de la imagen" class="imagengrad-izquierda" />
@@ -30,6 +44,53 @@
             nueva etapa que comienza.</p>
         </div> <br><br><br><br>
         <button class="details-button">DETALLES</button>
+        <script>
+function unlockCard() {
+    const name = document.getElementById('nameInput').value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    
+    // Lista de nombres permitidos, normalizados sin tildes y en minúsculas
+    const validNames = [
+        "yenny jaimes", "pablo cote", "rafael bolivar", "merly diaz", "gustavo cote",
+        "maria lucia jimenez", "monica cote", "adriana cote", "elda leon", "rosa acero",
+        "teresa acero", "sebastian bolivar", "maria eugenia bolivar", "carlos lizcano",
+        "santiago santafe", "valeria rincon", "alejandro araque", "andres gualdron",
+        "miguel castro", "paula plata", "cesar pena", "luz angela moreno"
+    ];
+
+    // Verificar si el nombre ingresado está en la lista
+    if (validNames.includes(name)) {
+        document.getElementById('modal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Permite el desplazamiento
+        document.querySelector('.landing-container').style.display = '';
+        document.querySelector('.invitation-container').style.display = '';
+        document.querySelector('.reception-container').style.display = '';
+        document.querySelector('.dress-code-container').style.display = '';
+    } else {
+        alert("Nombre no autorizado. Por favor, ingresa un nombre válido.");
+    }
+}
+
+    
+            // Resto del JavaScript (sin cambios)
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom >= 0
+                );
+            }
+    
+            function checkScroll() {
+                const invitation = document.getElementById('invitation');
+                if (isElementInViewport(invitation)) {
+                    invitation.classList.add('fade-in');
+                    window.removeEventListener('scroll', checkScroll);
+                }
+            }
+    
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('load', checkScroll);
+        </script>
     <script>
         document.querySelector('.details-button').addEventListener('click', function() {
             document.querySelector('.reception-container').scrollIntoView({ behavior: 'smooth' });
@@ -37,7 +98,7 @@
     </script>
     </div>
 
-    <div class="reception-container">
+    <div class="reception-container" style="display: none;">
         <h1 class="reception-title">Recepción</h1>
         
         <div class="reception-details">
@@ -53,7 +114,7 @@
         <p class="gift-note">LLUVIA DE SOBRES</p>
     </div>
 
-    <div class="dress-code-container">
+    <div class="dress-code-container" style="display: none;">
         <p class="dress-code-title">CÓDIGO DE VESTIMENTA</p>
         <p class="dress-code-description">Aquí podrás encontrar ideas de como puedes ir</p>
         <a data-pin-do="embedBoard" href="https://pin.it/JV150vXu4" title="Pinterest Board">Ver ideas en Pinterest</a>
