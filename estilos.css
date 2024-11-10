@@ -1,7 +1,13 @@
-/* Define la fuente */
 @font-face {
     font-family: 'Slight';
     src: url('Slight-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Simple Serenity';
+    src: url('SimpleSerenitySerif.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -9,8 +15,6 @@ body {
     padding: 0;
 }
 
-
-/* Contenedor principal */
 .landing-container {
     background-color: #011730;
     width: 100vw;
@@ -24,14 +28,12 @@ body {
     color: white;
 }
 
-/* Estilos para el texto */
 .titulo {
     color: white;
     font-size: 50px;
-    z-index: 2; /* Asegura que el texto esté encima de las partículas y las imágenes */
+    z-index: 2;
 }
 
-/* Estilos para el texto con brillo */
 .brillo {
     position: relative;
     display: inline-block;
@@ -48,7 +50,6 @@ body {
     }
 }
 
-/* Canvas para las partículas */
 canvas#sparkles {
     position: absolute;
     top: 0;
@@ -56,78 +57,28 @@ canvas#sparkles {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1; /* Asegura que el canvas esté detrás del texto pero encima del fondo */
+    z-index: 1;
 }
 
-/* Estilos para las imágenes con efecto espejo */
 .imagen-izquierda, .imagen-derecha {
     position: absolute;
-    top: calc(55% - 50px); /* Sube las imágenes 20 píxeles */
-    width: 20vw; /* Ajusta el tamaño de las imágenes para que ocupen la mitad del ancho de la ventana */
-    height: auto; /* Mantiene la proporción de las imágenes */
+    top: calc(55% - 50px);
+    width: 20vw;
+    height: auto;
     transform-origin: center;
-    z-index: 0; /* Coloca las imágenes detrás del texto y del canvas */
+    z-index: 0;
 }
 
-/* Transformaciones individuales para cada imagen */
 .imagen-izquierda {
-    left: 30%; /* Alinea la imagen izquierda al borde izquierdo */
-    transform: scaleX(-1) rotate(-15deg); /* Efecto espejo y rotación de -15 grados en la imagen izquierda */
+    left: 30%;
+    transform: scaleX(-1) rotate(-15deg);
 }
 
 .imagen-derecha {
-    right: 30%; /* Alinea la imagen derecha al borde derecho */
-    transform: rotate(-15deg); /* Rotación de -15 grados para la imagen derecha */
-}
-/* Media queries para hacer las imágenes responsivas */
-@media (max-width: 1200px) {
-    .imagen-izquierda, .imagen-derecha {
-        width: 25vw; /* Ajusta el tamaño de las imágenes para pantallas medianas */
-    }
+    right: 30%;
+    transform: rotate(-15deg);
 }
 
-@media (max-width: 992px) {
-    .imagen-izquierda, .imagen-derecha {
-        width: 30vw; /* Ajusta el tamaño de las imágenes para pantallas pequeñas */
-    }
-}
-
-@media (max-width: 768px) {
-    .imagen-izquierda, .imagen-derecha {
-        width: 40vw; /* Ajusta el tamaño de las imágenes para pantallas muy pequeñas */
-        top: calc(55% - 30px); /* Ajusta la posición para pantallas muy pequeñas */
-    }
-}
-
-@media (max-width: 576px) {
-    .imagen-izquierda, .imagen-derecha {
-        width: 50vw; /* Ajusta el tamaño de las imágenes para pantallas extra pequeñas */
-        top: calc(55% - 20px); /* Ajusta la posición para pantallas extra pequeñas */
-    }
-}
-
-/* Botón para deslizar hacia la invitación */
-.scroll-button {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #5e00b0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 3; /* Encima del contenido */
-}
-
-.scroll-button:hover {
-    background-color: #45007f;
-}
-
-/* Invitación: estilo inicial oculto */
 .invitation-container {
     display: flex;
     flex-direction: column;
@@ -135,7 +86,7 @@ canvas#sparkles {
     align-items: center;
     text-align: center;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px;
     background-color: #011730;
     color: #ffffff;
@@ -151,46 +102,37 @@ canvas#sparkles {
     font-size: 1.5rem;
 }
 
-@font-face {
-    font-family: 'Simple Serenity';
-    src: url('SimpleSerenitySerif.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .invitation-container h1 {
     font-family: 'Simple Serenity', sans-serif;
 }
 
-/* Estilo para mostrar la invitación cuando está en pantalla */
 .invitation-container.fade-in {
-    opacity: 1; /* Completamente visible */
-    transform: translateY(0); /* Posición final */
-}
-
-/* Resto de estilos para el texto y botón */
-.invitation-container .header p {
-    font-size: 1.5rem;
-    color: #cfcfcf;
-    margin-bottom: 10px;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .graduation-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Espacio entre las imágenes y el texto */
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-.invitation-container .header h1 {
+.graduation-header h1 {
+    font-family: 'Simple Serenity', sans-serif;
     font-size: 3.5rem;
     color: #ffffff;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-    margin-bottom: 20px;
+    margin: 0;
 }
 
-.invitation-container .message p {
+.imagengrad-izquierda, .imagengrad-derecha {
+    width: 100px;
+    height: auto;
+}
+
+.message p {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 10px;
@@ -213,29 +155,6 @@ canvas#sparkles {
     background-color: #e0e0e0;
 }
 
-.graduation-header h1 {
-    font-family: 'Simple Serenity', sans-serif;
-    font-size: 3.5rem;
-    color: #ffffff;
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-    margin: 0;
-}
-
-/* Estilo para las imágenes a los lados */
-.imagengrad-izquierda, .imagengrad-derecha {
-    width: 500px; /* Ajusta el tamaño de las imágenes según sea necesario */
-    height: auto;
-}
-
-@media (max-width: 768px) {
-    .graduation-header h1 {
-        font-size: 2.5rem; /* Tamaño de texto adaptado para pantallas pequeñas */
-    }
-    .imagengrad-izquierda, .imagengrad-derecha {
-        width: 40px; /* Tamaño de imágenes adaptado para pantallas pequeñas */
-    }
-}
-
 .reception-container {
     text-align: center;
     color: #ffffff;
@@ -249,10 +168,14 @@ canvas#sparkles {
     margin-bottom: 20px;
 }
 
-/* Estilo para la fecha y hora */
 .reception-details {
     font-family: 'Simple Serenity', sans-serif;
-    margin: 20px 0;
+    margin: 60px 0;
+}
+
+.date-time-container {
+    display: inline-block;
+    text-align: center;
 }
 
 .date-time {
@@ -269,19 +192,19 @@ canvas#sparkles {
     font-size: 1.2rem;
 }
 
-/* Estilo para el lugar del evento */
 .venue {
     font-size: 1.2rem;
     font-family: 'Simple Serenity', sans-serif;
     border-top: 1px solid #ffffff;
     padding-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .venue p {
     margin: 5px 0;
 }
 
-/* Nota de regalo */
 .gift-note {
     font-size: 0.9rem;
     margin-top: 20px;
@@ -289,17 +212,15 @@ canvas#sparkles {
     color: #cfcfcf;
 }
 
-/* Contenedor principal de código de vestimenta */
 .dress-code-container {
     text-align: center;
-    color: #0e1a2b; /* Color oscuro */
+    color: #0e1a2b;
     font-family: Arial, sans-serif;
     padding: 40px 20px;
-    background-color: #f9f9f9; /* Fondo claro */
-    margin-top: 40px; /* Espacio superior si es necesario */
+    background-color: #f9f9f9;
+    margin-top: 40px;
 }
 
-/* Título de código de vestimenta */
 .dress-code-title {
     font-size: 1.2rem;
     font-weight: bold;
@@ -307,34 +228,20 @@ canvas#sparkles {
     margin-bottom: 10px;
 }
 
-/* Descripción de la vestimenta */
 .dress-code-description {
     font-size: 1rem;
     color: #0e1a2b;
     margin-bottom: 5px;
 }
 
-/* Enlace para ideas de vestimenta */
-.dress-code-link {
-    color: #0e1a2b;
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-
-.dress-code-link:hover {
-    text-decoration: underline;
-}
-
-/* Contenedor de confirmación de asistencia */
 .confirmation {
     margin-top: 40px;
-    text-align: left;
+    text-align: center;
     color: #0e1a2b;
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
 }
 
-/* Números de contacto */
 .contact-numbers {
     font-size: 1rem;
     font-weight: bold;
@@ -342,7 +249,82 @@ canvas#sparkles {
     color: #0e1a2b;
 }
 
-.dress-code-container a[data-pin-do="embedBoard"] {
-    min-height: 400px;
-    display: block;
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 40px;
+    }
+
+    .imagen-izquierda, .imagen-derecha {
+        width: 30vw;
+        top: calc(55% - 30px);
+    }
+
+    .imagen-izquierda {
+        left: 10%; /* Ajusta la posición a la izquierda */
+    }
+
+    .imagen-derecha {
+        right: 10%; /* Ajusta la posición a la derecha */
+    }
+
+    .graduation-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .imagengrad-izquierda, .imagengrad-derecha {
+        width: 80px;
+    }
+
+    .reception-title {
+        font-size: 2.5rem;
+    }
+
+    .date-time, .venue {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 30px;
+    }
+
+    .imagen-izquierda, .imagen-derecha {
+        width: 60vw;
+        top: calc(55% - 65px);
+        position: absolute;
+    }
+    .imagen-izquierda {
+        left: -5vw; /* Ajusta la posición horizontal de la imagen izquierda */
+        transform: scaleX(-1) rotate(-25deg); /* Efecto espejo y rotación de -15 grados en la imagen izquierda */
+    }
+    
+    .imagen-derecha {
+        right: -5vw; /* Ajusta la posición horizontal de la imagen derecha */
+        transform: scaleX(1) rotate(-25deg); /* Efecto espejo y rotación de -15 grados en la imagen izquierda */
+    }
+
+    .graduation-header h1 {
+        font-size: 2rem;
+    }
+
+    .imagengrad-izquierda, .imagengrad-derecha {
+        width: 60px;
+    }
+
+    .reception-title {
+        font-size: 2rem;
+    }
+
+    .date-time, .venue {
+        font-size: 0.9rem;
+    }
+
+    .message p {
+        font-size: 0.9rem;
+    }
+
+    .details-button {
+        font-size: 0.9rem;
+    }
 }
